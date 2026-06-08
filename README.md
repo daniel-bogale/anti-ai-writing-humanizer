@@ -4,8 +4,9 @@
 doesn't read as AI. Plain words over inflated ones, specific facts over puffery, uneven human
 rhythm over the metronome. Works in Claude Code, Cursor, Codex, and OpenClaw.
 
+[![skills.sh](https://skills.sh/b/daniel-bogale/anti-ai-writing-humanizer)](https://skills.sh/daniel-bogale/anti-ai-writing-humanizer)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen.svg?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-brightgreen.svg?style=flat-square)](CHANGELOG.md)
 [![Works with Claude Code](https://img.shields.io/badge/Claude%20Code-skill%20%2B%20plugin-8A2BE2.svg?style=flat-square)](https://docs.anthropic.com/en/docs/claude-code)
 
 ---
@@ -58,24 +59,40 @@ convergence — re-scanning until a pass makes no new edits.
 
 ## Install
 
-### Claude Code
+### Quickest — the `skills` CLI (any agent)
 
-**Clone into your skills directory:**
+One command, via [skills.sh](https://skills.sh). It installs to Claude Code, Cursor, Codex, Windsurf,
+and 60+ other agents:
 
 ```bash
-git clone https://github.com/daniel-bogale/anti-ai-writing-humanizer ~/.claude/skills/anti-ai-writing-humanizer
+npx skills add daniel-bogale/anti-ai-writing-humanizer
 ```
 
-It auto-triggers on phrases like "humanize this", "remove AI-isms", or "rewrite so it doesn't sound
-like ChatGPT".
+Add `-g` for a global install (all projects), or `-a claude-code -a cursor` to target specific agents.
+Once installed, it auto-triggers on phrases like "humanize this", "remove AI-isms", or "rewrite so it
+doesn't sound like ChatGPT".
 
-**Or install as a versioned plugin** (also works in Claude Cowork, which only loads skills from
+### Claude Code — plugin
+
+For a versioned, updatable plugin (also the path for Claude Cowork, which loads skills only from
 plugins):
 
 ```
 /plugin marketplace add daniel-bogale/anti-ai-writing-humanizer
 /plugin install anti-ai-writing-humanizer@daniel-bogale-skills
 ```
+
+### Manual clone (any SKILL.md-compatible agent)
+
+The skill lives at `skills/anti-ai-writing-humanizer/`. Clone the repo and point your agent at that
+folder — e.g. for a bare Claude Code skill:
+
+```bash
+git clone https://github.com/daniel-bogale/anti-ai-writing-humanizer /tmp/aaw
+cp -r /tmp/aaw/skills/anti-ai-writing-humanizer ~/.claude/skills/
+```
+
+The same folder works for Codex (`~/.agents/skills/`) and OpenClaw (`~/.openclaw/skills/`).
 
 ### Cursor
 
@@ -87,21 +104,6 @@ curl -o .cursor/rules/anti-ai-writing-humanizer.mdc \
 
 See [`cursor-rules/README.md`](cursor-rules/README.md). The Cursor port carries the same core rules
 in one self-contained file.
-
-### OpenAI Codex
-
-Codex reads [Agent Skills](https://developers.openai.com/codex/skills) in the same `SKILL.md` format.
-Put the repo in `~/.agents/skills/` (all projects) or `.agents/skills/` (one repo):
-
-```bash
-git clone https://github.com/daniel-bogale/anti-ai-writing-humanizer ~/.agents/skills/anti-ai-writing-humanizer
-```
-
-### OpenClaw
-
-```bash
-git clone https://github.com/daniel-bogale/anti-ai-writing-humanizer ~/.openclaw/skills/anti-ai-writing-humanizer
-```
 
 ## Use it
 

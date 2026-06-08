@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "anti-ai-writing-humanizer",
-      "source": "./plugins/anti-ai-writing-humanizer",
+      "source": ".",
       "description": "Humanize AI-written text — write or rewrite prose so it doesn't read as AI. Light/heavy depth, editable house-rules overlay, deep detection engine, iterate-to-convergence.",
       "category": "productivity",
       "keywords": ["writing", "editing", "ai-detection", "humanize", "anti-ai"]

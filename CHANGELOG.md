@@ -3,6 +3,18 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions follow [SemVer](https://semver.org/).
 
+## [1.1.0] — 2026-06-08
+
+Restructured to the [skills.sh](https://skills.sh) convention so it installs with
+`npx skills add daniel-bogale/anti-ai-writing-humanizer`.
+
+- Moved the skill to `skills/anti-ai-writing-humanizer/SKILL.md` with `references/` alongside —
+  the single canonical location the `skills` CLI and skills.sh expect.
+- Removed the duplicated `plugins/` skill tree and the sync script/CI (no longer needed with one
+  canonical copy). The Claude plugin now uses a root `.claude-plugin/` with `source: "."`.
+- README leads with the `skills` CLI install and adds a skills.sh badge. No change to the skill's
+  behavior or rules.
+
 ## [1.0.0] — 2026-06-08
 
 Initial release.

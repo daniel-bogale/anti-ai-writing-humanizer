@@ -4,19 +4,21 @@ Thanks for the interest. This is a small, focused skill — contributions that k
 
 ## How it's structured
 
-- **`SKILL.md`** — the skill's behavior and the light/heavy depth logic.
-- **`references/house-rules.md`** — the editable banned-word/style list. Source of truth, wins on conflict.
-- **`references/write-human.md`** — the synthesized prescriptive rules (tagged by source).
-- **`references/avoid-ai-writing.md`** — vendored upstream engine. **Don't hand-edit** — re-vendor from
+The skill follows the [skills.sh](https://skills.sh) convention — everything lives under
+`skills/anti-ai-writing-humanizer/`:
+
+- **`skills/anti-ai-writing-humanizer/SKILL.md`** — the skill's behavior and the light/heavy depth logic.
+- **`.../references/house-rules.md`** — the editable banned-word/style list. Source of truth, wins on conflict.
+- **`.../references/write-human.md`** — the synthesized prescriptive rules (tagged by source).
+- **`.../references/avoid-ai-writing.md`** — vendored upstream engine. **Don't hand-edit** — re-vendor from
   [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing).
-- The `plugins/` copy is **generated** — never edit it directly.
 
 ## Before you open a PR
 
-1. Edit the root `SKILL.md` / `references/` — never the `plugins/` copy.
-2. Run `bash scripts/sync-plugin-skill.sh` to regenerate the plugin copy and commit the result.
-   CI fails if the bundled copy drifts from the root.
-3. Keep prose changes consistent with the skill's own rules (sentence case, no AI-isms — eat your own dog food).
+1. Verify the skill still resolves: `npx skills add ./ --list` should show one skill named
+   `anti-ai-writing-humanizer`.
+2. Keep prose changes consistent with the skill's own rules (sentence case, no AI-isms — eat your own dog food).
+3. New patterns include a before/after example.
 
 ## Good contributions
 

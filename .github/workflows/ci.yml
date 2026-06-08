@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest JSON
+        run: |
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python3 -m json.tool .claude-plugin/plugin.json > /dev/null
+
+      - name: SKILL.md has required frontmatter
+        run: |
+          skill="skills/anti-ai-writing-humanizer/SKILL.md"
+          test -f "$skill" || { echo "::error::$skill missing"; exit 1; }
+          # frontmatter must open on line 1 and contain name: + description:
+          head -n1 "$skill" | grep -qx -- "---" || { echo "::error::no frontmatter"; exit 1; }
+          fm="$(awk 'NR>1 && /^---[[:space:]]*$/{exit} NR>1{print}' "$skill")"
+          echo "$fm" | grep -q '^name:'        || { echo "::error::frontmatter missing name:"; exit 1; }
+          echo "$fm" | grep -q '^description:' || { echo "::error::frontmatter missing description:"; exit 1; }
+          echo "SKILL.md frontmatter OK"
+
+      - name: References resolve
+        run: |
+          for f in house-rules write-human avoid-ai-writing; do
+            test -f "skills/anti-ai-writing-humanizer/references/$f.md" \
+              || { echo "::error::missing references/$f.md"; exit 1; }
+          done
+          echo "references present"
