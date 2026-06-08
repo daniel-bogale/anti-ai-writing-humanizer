@@ -1,0 +1,12 @@
+{
+  "name": "anti-ai-writing-humanizer",
+  "description": "Humanize AI-written text — write or rewrite prose so it doesn't read as AI. Light/heavy depth, editable house-rules overlay, deep detection engine, iterate-to-convergence.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Daniel Bogale"
+  },
+  "homepage": "https://github.com/daniel-bogale/anti-ai-writing-humanizer",
+  "repository": "https://github.com/daniel-bogale/anti-ai-writing-humanizer",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "ai-detection", "humanize", "anti-ai"]
+}

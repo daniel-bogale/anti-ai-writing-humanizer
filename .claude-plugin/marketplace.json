@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "daniel-bogale-skills",
+  "description": "Daniel Bogale's public Claude Code / agent skills.",
+  "owner": {
+    "name": "Daniel Bogale"
+  },
+  "plugins": [
+    {
+      "name": "anti-ai-writing-humanizer",
+      "source": "./plugins/anti-ai-writing-humanizer",
+      "description": "Humanize AI-written text — write or rewrite prose so it doesn't read as AI. Light/heavy depth, editable house-rules overlay, deep detection engine, iterate-to-convergence.",
+      "category": "productivity",
+      "keywords": ["writing", "editing", "ai-detection", "humanize", "anti-ai"]
+    }
+  ]
+}

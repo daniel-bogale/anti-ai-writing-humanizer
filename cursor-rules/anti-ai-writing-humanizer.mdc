@@ -1,0 +1,84 @@
+---
+description: Humanize prose — write or rewrite so it doesn't read as AI. Activate when editing prose-heavy files (Markdown, docs, blog posts, READMEs, release notes, emails) or when asked to "humanize", "remove AI-isms", or "make this sound human". Cursor port of the anti-ai-writing-humanizer skill. See https://github.com/daniel-bogale/anti-ai-writing-humanizer
+globs: ["**/*.md", "**/*.mdx", "**/*.txt", "**/*.rst", "**/*.adoc"]
+alwaysApply: false
+---
+
+# Humanize writing — remove AI tells
+
+Write prose a human can deliver as their own, or rewrite existing prose so it stops reading as AI.
+Humanizing is mostly subtraction: cut the framing, keep the specific fact. Don't invent "human
+texture" — that's its own tell. Preserve meaning, facts, numbers, names, quotes, and citations exactly.
+Apply to prose only — never to code, code comments, or technical config.
+
+The root cause of every tell below: LLMs regress to the mean, swapping specific facts for generic,
+positive-sounding phrasing. Push back toward the specific — name the date, number, person, or what
+actually happened, and cut the framing around it.
+
+## 1. Use the plain word
+
+Replace inflated vocab with the ordinary one (or cut it). Swapping one banned word for another
+("leverage" → "harness") doesn't help.
+
+| Don't write | Write |
+|---|---|
+| delve into | look at, dig into |
+| showcase / highlight (verb) / underscore | show, point to |
+| foster | build, support |
+| garner | get, earn |
+| leverage | use |
+| enhance | improve |
+| align with / resonate with | match, fit — or cut |
+| serves as / stands as / serves as a testament to | is, shows, proves |
+| features / offers / boasts | has |
+| pivotal / crucial / vital / key (adj.) | important — or cut |
+| tapestry / rich tapestry | cut |
+| landscape / evolving landscape | name the field ("the industry") |
+| realm / journey | area, field |
+| vibrant / intricate | describe what's specifically lively/complex |
+| valuable insights | state the insight |
+| Additionally / Moreover / Furthermore (openers) | start the sentence, or "also" |
+| It is worth noting that | delete |
+
+## 2. Direct, uneven sentences
+
+- Use is/are/has — don't dress simple facts in elaborate verbs.
+- No "not just X, but Y" / "not X, but Y" parallelism. Pick one, or use a plain "but".
+- No rule-of-three padding ("keynotes, panels, and networking"). Be specific or say one thing well.
+- Repeat the noun — don't cycle synonyms for the same thing.
+- No false "from X to Y" ranges unless they're real endpoints on a real scale.
+- End at the fact. Cut "-ing" tack-ons that add interpretation ("…creating a vibrant community").
+- Vary sentence length. Metronomic pacing is the #1 detection signal; put a short sentence next to a long one.
+
+## 3. Earn every claim
+
+- State the fact, skip the significance ("stands as a testament", "marks a pivotal moment").
+- Don't label your own point "interesting / contrarian / surprising" — let it carry itself.
+- No name-dropping to prove importance; say what the source actually said.
+- Name the source or cut it — no "experts argue", "industry reports", "observers note".
+- No knowledge-cutoff disclaimers ("as of my last update"). Give the date a fact is from instead.
+- Write the real thing — no placeholders, no hedged gap-filling ("is believed to have").
+- Don't stack hedges or "Notably / Interestingly / Importantly" calibration cues.
+- No "Despite its X, Y faces challenges… continues to thrive" formula or optimism kicker.
+
+## 4. A person, not an assistant
+
+- No "Let's explore", "Here is your X", "As we can see", "This allows us to".
+- No sycophancy or prompt-restating ("Great question!", "To answer your question").
+- No rhetorical-question openers as transitions ("But what does this mean for you?").
+
+## 5. Structure and formatting
+
+- Let the subject shape the structure — no fixed Intro → … → Future Outlook template.
+- Keep one consistent voice; sudden style shifts read as stitched-together AI.
+- Sentence case headings; bold only for genuine emphasis; no inline-header bullet lists for prose.
+- No emoji in headings/bullets unless the user already uses them.
+- One em dash per piece, max — prefer commas, parentheses, colons.
+- Strip artifacts: chatbot citation tokens, AI-tool URL params, "Let me think step by step".
+
+## Self-check
+
+Banned word? Replace. More than one em dash? Cut. "-ing" interpretation clause? End at the fact.
+Puffery or self-labeled significance? Cut. Cutoff disclaimer / placeholder / vague "experts say"?
+Fix or leave an honest blank. Title-case headings? Sentence case. Do the sentences march or vary?
+Break the rhythm. Could a reader spot this as AI in five seconds? Redraft.

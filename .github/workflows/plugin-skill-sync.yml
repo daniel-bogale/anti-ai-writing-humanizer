@@ -1,0 +1,42 @@
+name: plugin-skill-sync
+
+on:
+  pull_request:
+    paths:
+      - "SKILL.md"
+      - "references/**"
+      - "plugins/**"
+      - ".claude-plugin/**"
+      - "scripts/**"
+  push:
+    branches: [main]
+    paths:
+      - "SKILL.md"
+      - "references/**"
+      - "plugins/**"
+      - ".claude-plugin/**"
+      - "scripts/**"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest JSON
+        run: |
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python3 -m json.tool plugins/anti-ai-writing-humanizer/.claude-plugin/plugin.json > /dev/null
+
+      - name: Regenerate the bundled plugin skill
+        run: bash scripts/sync-plugin-skill.sh
+
+      - name: Fail if the bundled skill drifted from the root sources
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::plugins/.../skills/anti-ai-writing-humanizer is out of sync with the root SKILL.md / references."
+            echo "Run 'bash scripts/sync-plugin-skill.sh' and commit the result."
+            git --no-pager diff --stat
+            exit 1
+          fi
+          echo "bundled skill is in sync"
