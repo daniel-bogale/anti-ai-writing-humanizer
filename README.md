@@ -1,5 +1,9 @@
 # anti-ai-writing-humanizer
 
+<p align="center">
+  <img src="anti-ai-blog.png" alt="Before and after: AI-written text with its tells crossed out, rewritten into clean human prose scoring 20% on an AI detector" width="100%">
+</p>
+
 **Humanize AI-written text.** A portable agent skill that writes prose — or rewrites it — so it
 doesn't read as AI. Plain words over inflated ones, specific facts over puffery, uneven human
 rhythm over the metronome. Works in Claude Code, Cursor, Codex, and OpenClaw.
